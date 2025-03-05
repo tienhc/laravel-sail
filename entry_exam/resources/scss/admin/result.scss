@@ -1,0 +1,51 @@
+.search-result {
+    padding-left: 320px;
+}
+table.shopsearchlist_table {
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;
+    table-layout: fixed;
+    background-color: #ffffff;
+    font-size: 13px;
+}
+
+#shop_name {
+    min-width: 111px;
+    text-align: center;
+    width: 111px;
+}
+
+h3.search-result-title {
+    font-size: 24px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.result-page-wrapper {
+    .booking-result-table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            th {
+                background-color: #f9f9f9;
+            }
+
+            td {
+                border-top: none;
+            }
+        }
+    }
+}

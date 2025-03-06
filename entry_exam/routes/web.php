@@ -19,6 +19,8 @@ Route::get('/admin/hotel/edit/{hotel_id}', [AdminHotelController::class, 'showEd
 Route::get('/admin/hotel/create', [AdminHotelController::class, 'showCreate'])->name('adminHotelCreatePage');
 Route::get('/admin/hotel/search/result', [AdminHotelController::class, 'searchResult'])->name('adminHotelSearchResult');
 Route::post('/admin/hotel/edit/{hotel_id}', [AdminHotelController::class, 'edit'])->name('adminHotelEditProcess');
+Route::post('/admin/hotels/{hotel_id}/confirm', [AdminHotelController::class, 'confirmEdit'])->name('adminHotelEditConfirm');
+Route::get('/admin/hotels/{hotel_id}/complete', [AdminHotelController::class, 'completeEdit'])->name('adminHotelEditComplete');
 Route::post('/admin/hotel/create', [AdminHotelController::class, 'create'])->name('adminHotelCreateProcess');
 Route::post('/admin/hotel/delete', [AdminHotelController::class, 'delete'])->name('adminHotelDeleteProcess');
 //bookings

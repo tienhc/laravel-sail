@@ -12,7 +12,7 @@
     <div class="page-wrapper edit-page-wrapper container">
         <h2 class="title">ホテル編集</h2>
         <hr>
-        <form action="{{ route('adminHotelEditProcess', $hotel->hotel_id) }}" method="post" enctype="multipart/form-data" class="hotel-form">
+        <form action="{{ route('adminHotelEditConfirm', $hotel->hotel_id) }}" method="post" enctype="multipart/form-data" class="hotel-form">
             @csrf
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="form-group">

@@ -65,7 +65,7 @@ class HotelController extends Controller
         $hotel->prefecture_id = $request->input('prefecture_id');
         $hotel->save();
 
-        return redirect()->route('adminHotelSearchResult')->with('success', 'Hotel updated successfully');
+        return redirect()->route('adminHotelEditComplete', $hotel_id)->with('success', 'Hotel updated successfully');
     }
 
     public function create(Request $request)
@@ -116,5 +116,23 @@ class HotelController extends Controller
         $hotel->delete();
 
         return redirect()->route('adminHotelSearchResult', $request->except(['_token', 'hotel_id']))->with('success', 'Hotel deleted successfully');
+    }
+
+    public function confirmEdit(Request $request, $hotel_id): View
+    {
+        $this->validateHotel($request);
+
+        $hotel = Hotel::findOrFail($hotel_id);
+        $data = $request->all();
+        if(!isset($data['file_path'])) {
+            $data['file_path'] = $hotel->file_path;
+        }
+
+        return view('admin.hotel.confirm', compact('hotel', 'data'));
+    }
+    public function completeEdit($hotel_id): View
+    {
+        $hotel = Hotel::findOrFail($hotel_id);
+        return view('admin.hotel.complete', compact('hotel'));
     }
 }

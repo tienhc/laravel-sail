@@ -43,8 +43,8 @@ class HotelController extends Controller
 //        if ($dataRq['hotel_name'] == null) {
 //            return back()->with('error', ['Please enter hotel name']);
 //        }
-        $hotelNameToSearch = $request->input('hotel_name');
-        $prefecture = $request->input('prefecture_id');
+        $hotelNameToSearch = (string) $request->input('hotel_name');
+        $prefecture = (int) $request->input('prefecture_id');
         $hotelList = Hotel::getHotelListByName($hotelNameToSearch, $prefecture);
         $prefectureList = Prefecture::getPrefectureList();
 

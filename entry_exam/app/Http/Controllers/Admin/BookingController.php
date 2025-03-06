@@ -52,6 +52,6 @@ class BookingController extends Controller
 
         Booking::create($request->all());
 
-        return redirect()->route('adminBookingCreatePage')->with('success', 'Booking created successfully');
+        return redirect()->route('adminBookingSearchPage')->with('success', 'Booking created successfully');
     }
 }

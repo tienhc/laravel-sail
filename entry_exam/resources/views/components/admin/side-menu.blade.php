@@ -9,10 +9,10 @@
                 <a class="link" href="{{ route('adminHotelCreatePage') }}">ホテル追加</a>
             </li>
             <li>
-                <a href="{{ route('adminBookingSearchPage') }}">予約情報検索</a>
+                <a class="link" href="{{ route('adminBookingSearchPage') }}">予約情報検索</a>
             </li>
             <li>
-                <a href="{{ route('adminBookingCreatePage') }}">予約情報追加</a>
+                <a class="link" href="{{ route('adminBookingCreatePage') }}">予約情報追加</a>
             </li>
         </ul>
     </div>

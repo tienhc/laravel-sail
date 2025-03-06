@@ -53,7 +53,6 @@ class HotelController extends Controller
 
     public function edit(Request $request, $hotel_id)
     {
-        $this->validateHotel($request);
 
         $hotel = Hotel::findOrFail($hotel_id);
 
@@ -121,14 +120,14 @@ class HotelController extends Controller
     public function confirmEdit(Request $request, $hotel_id): View
     {
         $this->validateHotel($request);
-
         $hotel = Hotel::findOrFail($hotel_id);
+        $prefectureList = Prefecture::getPrefectureList();
         $data = $request->all();
         if(!isset($data['file_path'])) {
             $data['file_path'] = $hotel->file_path;
         }
 
-        return view('admin.hotel.confirm', compact('hotel', 'data'));
+        return view('admin.hotel.confirm', compact('hotel', 'data', 'prefectureList'));
     }
     public function completeEdit($hotel_id): View
     {

@@ -22,7 +22,7 @@
                         <input type="text" id="hotel_name" name="hotel_name" value="{{ old('hotel_name') }}"
                                placeholder="ホテル名" class="input input-bordered w-2/3">
                         @error('hotel_name')
-                        <span class="error text-red-500 text-sm">{{ $message }}</span>
+                        <p class="error text-red-500 text-sm">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -35,7 +35,7 @@
                             @endforeach
                         </select>
                         @error('prefecture_id')
-                        <span class="error text-red-500 text-sm">{{ $message }}</span>
+                        <p class="error text-red-500 text-sm">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -43,7 +43,7 @@
                         <input type="file" id="file_path" name="file_path"
                                class="file-input file-input-bordered w-full">
                         @error('file_path')
-                        <span class="error text-red-500 text-sm">{{ $message }}</span>
+                        <p class="error text-red-500 text-sm">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>

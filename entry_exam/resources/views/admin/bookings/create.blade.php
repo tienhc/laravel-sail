@@ -22,26 +22,41 @@
                                 </option>
                             @endforeach
                         </select>
+                        @error('hotel_id')
+                        <p class="error text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="customer_name" class="block text-lg font-semibold mb-3">顧客名</label>
                         <input type="text" name="customer_name" value="{{ old('customer_name') }}" required
                                class="input input-bordered w-2/3">
+                        @error('customer_name')
+                        <p class="error text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="customer_contact" class="block text-lg font-semibold mb-3">顧客連絡先</label>
                         <input type="text" name="customer_contact" value="{{ old('customer_contact') }}" required
                                class="input input-bordered w-2/3">
+                        @error('customer_contact')
+                        <p class="error text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="checkin_time" class="block text-lg font-semibold mb-3">チェックイン日時</label>
                         <input type="datetime-local" name="checkin_time" value="{{ old('checkin_time') }}" required
                                class="input input-bordered w-2/3">
+                        @error('checkin_time')
+                        <p class="error text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="checkout_time" class="block text-lg font-semibold mb-3">チェックアウト日時</label>
                         <input type="datetime-local" name="checkout_time" value="{{ old('checkout_time') }}" required
                                class="input input-bordered w-2/3">
+                        @error('checkout_time')
+                        <p class="error text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="mt-10 text-center">

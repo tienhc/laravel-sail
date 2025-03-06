@@ -13,7 +13,15 @@
                 </div>
                 <div class="form-group">
                     <label for="prefecture_id" class="block text-lg font-semibold mb-2">都道府県</label>
-                    <input type="text" id="prefecture_id" name="prefecture_id" value="{{ $data['prefecture_id'] }}" readonly class="input input-bordered w-full">
+                    <select id="prefecture_id" name="prefecture_id" class="select select-bordered w-full">
+                        <option value="">選択してください</option>
+                        @foreach($prefectureList as $entry)
+                            <option value="{{ $entry['prefecture_id'] }}" {{ old('prefecture_id', $data['prefecture_id']) == $entry['prefecture_id'] ? 'selected' : '' }}>{{ $entry['prefecture_name'] }}</option>
+                        @endforeach
+                    </select>
+                    @error('prefecture_id')
+                    <span class="error text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="file_path" class="block text-lg font-semibold mb-2">画像</label>
@@ -24,7 +32,9 @@
                 </div>
             </div>
             <div class="mt-6 text-center">
+                <button type="button" onclick="history.back()" class="btn btn-secondary w-full md:w-1/12">戻る</button>
                 <button type="submit" class="btn btn-primary w-full md:w-1/12">更新</button>
+
             </div>
         </form>
         <hr>

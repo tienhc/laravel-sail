@@ -39,10 +39,10 @@ class HotelController extends Controller
 
     public function searchResult(Request $request)
     {
-//        $dataRq = $request->all();
-//        if ($dataRq['hotel_name'] == null) {
-//            return back()->with('error', ['Please enter hotel name']);
-//        }
+        $dataRq = $request->all();
+        if ( $request->has('hotel_name') && empty($request->input('hotel_name')) ) {
+            return redirect()->route('adminHotelSearchResult')->withErrors(['hotel_name' => '何も入力されていません']);
+        }
         $hotelNameToSearch = (string) $request->input('hotel_name');
         $prefecture = (int) $request->input('prefecture_id');
         $hotelList = Hotel::getHotelListByName($hotelNameToSearch, $prefecture);
